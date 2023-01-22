@@ -3,14 +3,14 @@
   - application: note while reading text
 
 # usage
-python3 clips.py << file_name >>
+`python3 clips.py file_name `
 
-# default file_name : 'clip.json'
+* default file_name : `clip.json`
 
 # Todo:
     - Run at startup
     METHOD 1 :
-    att to: /etc/rc.local
+    append to: /etc/rc.local
     /path/to/my_script.sh &
 
 METHOD2:
