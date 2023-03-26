@@ -1,13 +1,19 @@
 # Pyclipse
   - Stores text copied to a file
-  - application: note while reading text
+  - read aloud copied text if `SPEAK = True` in `.env` file
+  - application: note while reading text from web or pdfs
 
 # usage
+* install dependencies: 
+`pip install -r requirements.txt`
+
+* run the script: 
 `python3 clips.py file_name `
 
 * default file_name : `clip.json`
 
 # Todo:
+    - Custom shortctcut rather than copy paste
     - Run at startup
     METHOD 1 :
     append to: /etc/rc.local
@@ -56,3 +62,6 @@ sudo journalctl -u pyclipse.service
         - switch to keylogger input
         - perform certain actions: personal assistant
 
+
+# Errors
+* `Pyperclip could not find a copy/paste mechanism for your system` : [solution](https://pyperclip.readthedocs.io/en/latest/index.html#not-implemented-error)

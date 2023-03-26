@@ -5,3 +5,4 @@
 !.gitignore
 !requirements.txt
 !clips.py
+!text_to_speech/

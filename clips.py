@@ -1,11 +1,13 @@
 import pyperclip
-import datetime
+import datetime, time
 import json
 import os
 import sys
+from dotenv import load_dotenv
+from text_to_speech.main import TTS
 sys.path.append("/home/sec/.local/lib/python3.9/site-packages")
 
-
+load_dotenv()
 current_file_path = os.path.abspath(__file__).replace('clips.py', '')
 # print(current_file_path)
 
@@ -35,11 +37,24 @@ def write_to_file(text=''):
 
 def main():
     previous_clipboard = {}
+    # count = 0
     while True:
         current_clipboard = pyperclip.paste()
         if current_clipboard != previous_clipboard:
+            if os.environ.get('SPEAK'):
+                # Read the currently copied text
+                TTS.speak(current_clipboard)
+            
+            # Save the currently copied text
             write_to_file(current_clipboard)
+            
+            # update previous_clipboard
             previous_clipboard = current_clipboard
+
+        # Check every 1 second
+        time.sleep(1)
+        # count+=1
+        # print(count)
 
 if __name__=="__main__":
     try:	
